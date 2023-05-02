@@ -1,3 +1,4 @@
+$(document).ready(() => {
 // import parseInput from "./parse_text.js";
 // import * as svg from "./create_js";
 // const parseInput = require("./parse_text");
@@ -5,6 +6,7 @@
 // Get references to DOM elements
 const svgInput = document.getElementById("svg-input");
 const renderBtn = document.getElementById("render-btn");
+const saveBtn = document.getElementById("save-btn");
 const svgContainer = document.getElementById("svg-container");
 
 // Create new SVG element
@@ -12,9 +14,12 @@ let svgElement;
 let svgMotherElement;
 let screenSizeSet = false;
 let currentColor = "black";
+let currentSvgCode;
 
 // Add event listener to render button
 renderBtn.addEventListener("click", buttonClick);
+saveBtn.addEventListener("click", saveClick);
+
 
 function buttonClick(){
   const svgCode = svgInput.value;
@@ -25,9 +30,31 @@ function buttonClick(){
   // Add SVG code to SVG element
 
   // Clear SVG container and append new SVG element
+  currentSvgCode = svgMotherElement.outerHTML;
   svgContainer.innerHTML = "";
   svgContainer.appendChild(svgMotherElement);
-  console.log(svgMotherElement.outerHTML);
+  
+  // $(document).ready(($("#svg-container").append(svgMotherElement)));
+
+  console.log(currentSvgCode);
+  // svgContainer.innerHTML = currentSvgCode;
+}
+
+function saveClick(){
+  console.info("save click");
+  $(document).ready(function() {
+    $('#save_svg').click(function() {
+        var svg_text = $('#svg_text').val();
+        if (svg_text) {
+            var blob = new Blob([svg_text], {type: 'image/svg+xml'});
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'image.svg';
+            a.click();
+        }
+    });
+});
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -309,3 +336,4 @@ function finalize(){
     return svg;
 }
 */
+});

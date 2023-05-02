@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Input Text and Generate SVG</title>
-    <!--
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    -->
+    <title>.vec to svg parser</title>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <form method="POST">
-        <label for="svg-input">Enter SVG code:</label>
-      <textarea id="svg-input"></textarea>
-      <button id="render-btn">Render SVG</button>
-      <button type="submit" name="save_svg">Save SVG</button>
-      <input type="hidden" name="svg_text" id="svg_text" value="">
-    </form>
-    <div class="div-img" id="svg-container">
+    <div class="github-logo">
+      <a href="https://github.com/xEmkayx/vec-svg-parser">
+        <img src="https://github.com/favicon.ico" alt="GitHub Logo" width="50" height="50">
+      </a>
     </div>
+    
+    <div class="content">
+        <!--<label for="svg-input">Enter SVG code:</label>-->
+      <textarea id="svg-input" rows="10" cols="50"></textarea>
+      <button id="render-btn">Render SVG</button>
+      <button name="save_svg" id="save-btn">Save SVG</button>
+      <input type="hidden" name="svg_text" id="svg_text" value="">
+    </div>
+    <div class="div-img" id="svg-container">
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./main.js"></script>
     <!--
   <script>
