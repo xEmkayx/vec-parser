@@ -42,6 +42,13 @@ function buttonClick(){
 
 function saveClick(){
   console.info("save click");
+  const svgText = currentSvgCode; // document.getElementById("svg-input").value;
+  const blob = new Blob([svgText], { type: "image/svg+xml" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "image.svg";
+  a.click();/*
   $(document).ready(function() {
     $('#save_svg').click(function() {
         var svg_text = $('#svg_text').val();
@@ -55,8 +62,8 @@ function saveClick(){
         }
     });
 });
+*/
 }
-
 ////////////////////////////////////////////////////////////////////////
 
 function create(wdth, hght) {
